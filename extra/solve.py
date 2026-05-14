@@ -70,8 +70,6 @@ def main() -> None:
         a = params["a"]
         a_inv = pow(a, 2, p)
 
-        print("[+] account_id =", account_id)
-
         for k2 in range(window):
             x2 = account_id * window + k2
             rhs = (pow(x2, 3, p) + b) % p
@@ -122,10 +120,10 @@ def main() -> None:
             )
 
             if verify_resp.get("ok"):
-                print("[+] found k =", k2)
-                print("[+] signed m =", m1)
-                print("[+] signed k =", k1)
-                print("[+] flag =", verify_resp["flag"])
+                print("found k =", k2)
+                print("signed m =", m1)
+                print("signed k =", k1)
+                print("flag =", verify_resp["flag"])
                 return
 
         raise RuntimeError("attack failed; parameters may have been changed")
