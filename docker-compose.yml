@@ -1,0 +1,9 @@
+services:
+  token_service:
+    build: .
+    container_name: token-service
+    ports:
+      - "1340:5000"
+    environment:
+      FLAG: "CCCTF{Ya_wen2__faahhh___}"
+    restart: unless-stopped
